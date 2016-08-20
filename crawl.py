@@ -6,5 +6,14 @@ def get_next_target(source):
     end_quote = source.find('"',start_quote+1)
     url = source[start_quote+1:end_quote]
     return url,end_quote
-url,endpos=get_next_target()
+
     
+def print_all_links(source):
+    while True:
+        url, endpos=get_next_target(source)
+        if url:
+            print(url)
+            source = source[endpos:]
+        else:
+            break
+                
