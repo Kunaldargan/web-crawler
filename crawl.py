@@ -17,3 +17,4 @@ def print_all_links(source):
         else:
             break
                 
+print_all_links(source)
