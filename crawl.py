@@ -7,8 +7,9 @@ def get_next_target(source):
     url = source[start_quote+1:end_quote]
     return url,end_quote
 
-list_of_links=[] 
-def print_all_links(source):
+ 
+def get_all_links(source):
+    list_of_links=[]
     while True:
         url, endpos=get_next_target(source)
         if url:
@@ -16,5 +17,5 @@ def print_all_links(source):
             source = source[endpos:]
         else:
             break
-                
-print_all_links(source)
+    return list_of_links  
+
