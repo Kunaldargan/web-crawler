@@ -38,12 +38,15 @@ print(get_all_links(html))
 def crawl_web(seed):
     to_crawl=[seed]
     crawled=[]
+    index=[]
     while to_crawl:
-        source=to_crawl.pop()
-        if source not in crawled:
-            union(to_crawl,get_all_links(page))
+        page=to_crawl.pop()
+        if page not in crawled:
+            content=get_page(page)
+            add_page_to_index(index,page,content)
+            union(to_crawl,get_all_links(content))
             crawled.append(page)
-    return crawled
+    return index
             
 def add_to_index(index,keyword,url):
     for entry in index:
